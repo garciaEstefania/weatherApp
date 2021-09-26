@@ -5,22 +5,10 @@ import Api from '../api';
 
 export default class historyScreen extends Component {
 
-    async componentDidMount (){
+    async componentDidMount (city){
         try {
             const response = await Api.getWeatherHistory(city);
-            cityList.push(
-                {
-                    city: city,
-                    tempC: response.current.temp_c,
-                    tempF: response.current.temp_f,
-                },
-            )
-            this.setState(prevState => ({
-                ...prevState,
-                list: cityList,
-            }));
             
-            console.log('ciudad: ', this.state.list)
         } catch (e) {
             // saving error
             throw e;
@@ -30,7 +18,7 @@ export default class historyScreen extends Component {
     render() {
         return (
             <View>
-                <Text> textInComponent </Text>
+                <Text> Weather History </Text>
             </View>
         )
     }
