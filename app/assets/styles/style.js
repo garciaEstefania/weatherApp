@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         flex: 0.9,
         borderColor: "#030303",
         borderWidth: 0.5,
-        borderRadius: 5,
+        borderRadius: 10,
         paddingLeft: 20,
     },
     viewBtnAdd:{
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#fff",
     },
-    intemInfo:{
+    itemInfo:{
         flex: 0.7,
     },
     itemOptions:{
@@ -102,6 +102,48 @@ const styles = StyleSheet.create({
     },
     tempTitle:{
         fontSize: HEIGHT * 0.04,
+    },
+    mainContainerHistory:{
+        flex: 1,
+    },
+    titleContainer:{
+        flex: 0.3,
+        justifyContent: "center",
+        alignItems: "center",          
+    },
+    titleHistory:{
+        fontSize: HEIGHT * 0.04,
+    },
+    titleCity:{
+        fontSize: HEIGHT * 0.025,
+    },
+    historyItem:{
+        flex: 0.6,
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        marginVertical: 15,
+        borderRadius: 10,
+        backgroundColor: "#fff",
+    },
+    icon:{
+        width: WIDTH*0.09,
+        height: WIDTH*0.09,
+    },
+    row:{
+        flexDirection: 'row',
+        paddingTop: 20,
+    },
+    column:{
+        flexDirection: 'column',
+        marginHorizontal: 20,
+    },
+    textItem:{
+        color: "#808385",
+    },
+    textDate:{
+        fontSize: HEIGHT * 0.02,
     },
 })
 
