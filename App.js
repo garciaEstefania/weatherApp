@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import HomeScreen from './app/screens/homeScreen'
+import 'react-native-gesture-handler';
+import React, { Component } from 'react';
+import AppNavigator from './app/navigation/appNavigator';
 
 export default class App extends Component {
 
@@ -9,7 +10,7 @@ export default class App extends Component {
 
   render() {
     return (
-      < HomeScreen />
+      <AppNavigator/>
     )
   }
 }
