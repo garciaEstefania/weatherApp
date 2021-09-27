@@ -10,20 +10,14 @@ class api {
             body: formData,
         })
         const responseData = await response.json();
-        console.log(responseData)
         return responseData;
     }
 
     async getWeatherHistory(city) {
-        const formData = new FormData();
-        formData.append('key','7ffba6cfd62e4d548b420218212409')
-        formData.append('q',city)
-        const response = await fetch(`${BASE_API}/history.json`, {
+        const response = await fetch(`${BASE_API}/history.json?key=7ffba6cfd62e4d548b420218212409&q=${city}&dt=2021-09-20&end_dt=2021-09-26`, {
             method: 'POST',
-            body: formData,
         })
         const responseData = await response.json();
-        console.log(responseData)
         return responseData;
     }
 }
