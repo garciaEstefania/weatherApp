@@ -30,7 +30,7 @@ export default class homeScreen extends Component {
             })
         } catch (err) {
             console.log(err)
-        }0
+        }
     };
 
     addCity = async (city) => {
@@ -47,8 +47,7 @@ export default class homeScreen extends Component {
                 ...prevState,
                 list: cityList,
             }));
-            
-            console.log('ciudad: ', this.state.list)
+            this.txtAddCity.clear()
         } catch (e) {
             // saving error
             throw e;
@@ -61,16 +60,15 @@ export default class homeScreen extends Component {
                 return true;
             }
         });
-        const newList = [];
-        newList = this.state.list.splice(indice, 1);
-        this.setState({
-            list: newList,
-        })
-
+        console.log('indice: ', indice)
+        this.state.list.splice(indice, 1);
+        console.log('new list: ', this.state.list)
     };
 
     weatherHistory = (city) => {
-        
+        this.props.navigation.navigate('HistoryScreen', {
+            city: city,
+        })
     };
 
     convertToFarenheit = () => {
@@ -95,12 +93,12 @@ export default class homeScreen extends Component {
       return(
             <View style={styles.cityItem}>
             {this.state.Celcius ?
-                <View style={styles.intemInfo}>
+                <View style={styles.itemInfo}>
                     <Text style={styles.cityTitle}>{item.city}</Text>
                     <Text style={styles.tempTitle}>{item.tempC} {this.state.tempScale}</Text>
                 </View>
             :
-                <View style={styles.intemInfo}>
+                <View style={styles.itemInfo}>
                     <Text style={styles.cityTitle}>{item.city}</Text>
                     <Text style={styles.tempTitle}>{item.tempF} {this.state.tempScale}</Text>
                 </View>
@@ -139,6 +137,7 @@ export default class homeScreen extends Component {
                         onChangeText={text => this.setState(prevState => ({ ...prevState, city: text }))}
                         value={this.state.city}
                         blurOnSubmit={false}
+                        ref={inputAdd => {this.txtAddCity = inputAdd}}
                         onSubmitEditing={() => this.cityRef.current?.focus()}
                     />
                     <View style={styles.viewBtnAdd}>
@@ -173,7 +172,7 @@ export default class homeScreen extends Component {
                         </TouchableOpacity>
                     </View>
                 }
-                <View>
+                <View style={{ flex: 0.7 }}>
                     <FlatList
                         data={this.state.list}
                         keyExtractor={(item) => item.city.toString()}
